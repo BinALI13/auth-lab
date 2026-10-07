@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>update Entries</title>
+</head>
+<body>
+    <%- include('./partials/navbar') %>
+    <h1>Update entry</h1>
+
+    <form action="/entries/<%= Entry._id %>?_method=PUT" method="post">
+        <label for="title">Title:</label>
+        <input id="title" name="title" type="text"  value="<%= Entry.title %>">
+
+        <label for="entryBody">Entry Body: </label>
+        <input id="entryBody" name="entryBody" type="text"  value="<%= Entry.entryBody %>">
+
+        <label for="isPublic">Is It Public? </label>
+        <input <% if(Entry.isPublic){ %> checked <% } %> id="isPublic" name="isPublic" type="checkbox">
+
+        <button>Update Entry</button>
+    </form>
+</body>
+</html>

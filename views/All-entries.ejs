@@ -1,0 +1,51 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Entries</title>
+</head>
+
+<body>
+
+    <%- include('./partials/navbar') %>
+
+    <h1>All Entries</h1>
+
+    <% for (let oneEntry of Entry) { %>
+
+        <p>
+            <strong>Title:</strong>
+            <%= oneEntry.title %>
+        </p>
+
+        <p>
+            <strong>Entry Body:</strong>
+            <%= oneEntry.entryBody %>
+        </p>
+
+        <p>
+            <strong>Is It Public:</strong>
+            <%= oneEntry.isPublic %>
+        </p>
+
+        <% if (oneEntry.owner.toString() === user._id.toString()) { %>
+
+            <a href="/entries/<%= oneEntry._id %>/edit">Edit</a>
+
+            <form action="/entries/<%= oneEntry._id %>?_method=DELETE" method="POST">
+                <button type="submit">Delete</button>
+            </form>
+
+        <% } %>
+
+        <hr>
+
+    <% } %>
+
+</body>
+
+</html>

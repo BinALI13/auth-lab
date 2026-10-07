@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Entries</title>
+</head>
+<body>
+    <%- include('./partials/navbar') %>
+    
+    <h1>My Entries</h1>
+
+    <% for(let oneEntry of Entry){ %>
+        
+        <p>title: <%= oneEntry.title  %></p>
+        <p>Entry Body: <%= oneEntry.entryBody  %></p>
+        <p>Is It Public: <%= oneEntry.isPublic  %></p>
+
+        <% } %>
+
+</body>
+</html>
